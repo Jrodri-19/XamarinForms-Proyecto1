@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicacionDBP1.miApp.CV"
+             Title="Mi Aplicación">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#800080" Offset="0.0" />
+            <GradientStop Color="#4B0082" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="Margin" Value="10,5" />
+        </Style>
+        <Style TargetType="Editor">
+            <Setter Property="BackgroundColor" Value="#80C0C0C0" />
+            <!-- Fondo plomo semitransparente -->
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="Margin" Value="10,5" />
+            <Setter Property="PlaceholderColor" Value="#DDDDDD" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="#80C0C0C0" />
+            <!-- Fondo plomo semitransparente -->
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="Margin" Value="10,5" />
+            <Setter Property="PlaceholderColor" Value="#DDDDDD" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#000000" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="Margin" Value="20,10" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Padding" Value="10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Padding="20">
+        <Label Text="Curriculum Vitae JR" FontSize="Large" TextColor="White" HorizontalOptions="Center" Margin="0,20,0,10" />
+
+        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <ScrollView>
+                <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
+                    <Label Text="Nombre" />
+                    <Editor x:Name="nombreEditor" Placeholder="Ingrese su nombre" HeightRequest="50" />
+
+                    <Label Text="Apellido" />
+                    <Editor x:Name="apellidoEditor" Placeholder="Ingrese sus apellidos" HeightRequest="50" />
+
+                    <Label Text="Descripción" />
+                    <Editor x:Name="descripcionEditor" Placeholder="Ingrese su descripción" HeightRequest="100" />
+
+                    <Label Text="Estudios" />
+                    <Editor x:Name="estudioEditor" Placeholder="Ingrese sus estudios" HeightRequest="100" />
+
+                    <Label Text="Contacto" />
+                    <Entry x:Name="contactoEntry" Placeholder="Ingrese su información de contacto" />
+
+                    <Label Text="Idiomas" />
+                    <Editor x:Name="idiomasEditor" Placeholder="Ingrese sus idiomas" HeightRequest="50" />
+
+                    <Label Text="Habilidades" />
+                    <Editor x:Name="habilidadesEditor" Placeholder="Ingrese sus habilidades" HeightRequest="50" />
+
+                    <Button Text="Generar CV" Clicked="OnGenerateClicked" />
+
+                    <!-- Cuadro blanco centrado para mostrar el CV generado -->
+                    <Frame x:Name="cvFrame" BackgroundColor="White" Padding="20" CornerRadius="10" IsVisible="False">
+                        <StackLayout>
+                            <Label Text="Curriculum Vitae" FontSize="Large" TextColor="Black" HorizontalOptions="Center" />
+                            <Label x:Name="cvContentLabel" TextColor="Black" />
+                            <Button Text="Exportar CV" Clicked="OnExportClicked" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
+
+
